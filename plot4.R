@@ -8,7 +8,7 @@ powersub$Dtime <- as.POSIXct(paste(as.Date(powersub$Date), powersub$Time))
 
 ## Plot
 dev.off()
-par(mfrow=c(2,2))
+par(mfrow=c(2,2), mar = c(4,4,2,1))
 with(powersub,{
   plot(Global_active_power ~ Dtime,
        type='l', ylab='Global Active Power', xlab='')
@@ -16,10 +16,10 @@ with(powersub,{
        type='l', ylab='Voltage', xlab='datetime')
   plot(Sub_metering_1 ~ Dtime,
        type='l', ylab='Energy sub metering', xlab='')
-  lines(Sub_metering_2 ~ Dtime,col='Red')
-  lines(Sub_metering_3 ~ Dtime,col='Blue')
-  # legend("topright", c("Sub Metering 1", "Sub Metering 2", "Sub Metering 3"),
-  # col = c("black", "red", "blue"), bty='n')
+    lines(Sub_metering_2 ~ Dtime,col='Red')
+    lines(Sub_metering_3 ~ Dtime,col='Blue')
+    # legend("topleft", c("Sub Metering 1", "Sub Metering 2", "Sub Metering 3"),
+    # col = c("black", "red", "blue"), bty='n', lwd = 1)
   plot(Global_reactive_power ~ Dtime,
        type='l', ylab='Global Reactive Power',xlab='datetime')
 })
