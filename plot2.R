@@ -8,10 +8,10 @@ powersub$Dtime <- as.POSIXct(paste(as.Date(powersub$Date), powersub$Time))
 
 ## Plot
 dev.off()
-plot(powersub$Global_active_power ~ powersub$Dtime,
+with(powersub, plot(Global_active_power ~ Dtime,
      type='l',
      ylab='Global Active Power (kilowatts)',
-     xlab = '')
+     xlab = ''))
 
 ## Save
 dev.copy(png, file='plot2.png', height=480, width=480)

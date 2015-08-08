@@ -8,13 +8,15 @@ powersub$Dtime <- as.POSIXct(paste(as.Date(powersub$Date), powersub$Time))
 
 #Plot
 dev.off()
-plot(powersub$Sub_metering_1 ~ powersub$Dtime, type='l',
+with(powersub, {
+  plot(Sub_metering_1 ~ Dtime, type='l',
      ylab='Energy sub metering',
      xlab='')
   legend("topright", c("Sub Metering 1", "Sub Metering 2", "Sub Metering 3"),
-         col = c("black", "red", "blue"), lty = 'solid')
-  lines(powersub$Sub_metering_2 ~ powersub$Dtime, col='red')
-  lines(powersub$Sub_metering_3 ~ powersub$Dtime, col='blue')
+         col = c("black", "red", "blue"), lwd = 2)
+  lines(Sub_metering_2 ~ Dtime, col='red')
+  lines(Sub_metering_3 ~ Dtime, col='blue')
+})
     
 #Save
 dev.copy(png, file='plot3.png', height=480, width=480)
